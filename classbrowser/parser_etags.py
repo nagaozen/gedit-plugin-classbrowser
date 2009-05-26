@@ -210,7 +210,7 @@ class ETagsParserPHP( ETagsParser ):
 
 
 class ETagsParserASP( ETagsParser ):
-    """ This parser is able to recognise php symbols like class, static, etc """
+    """ This parser is able to recognise asp symbols like class, sub, etc """
     
     def _get_type(self, string):
         """ Returns a char representing the token type or False if none were found.
