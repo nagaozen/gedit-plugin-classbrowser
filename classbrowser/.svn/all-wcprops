@@ -1,0 +1,89 @@
+K 25
+svn:wc:ra_dav:version-url
+V 35
+/svn/!svn/ver/53/trunk/classbrowser
+END
+options.py
+K 25
+svn:wc:ra_dav:version-url
+V 46
+/svn/!svn/ver/52/trunk/classbrowser/options.py
+END
+parser_ctags.py
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/svn/!svn/ver/53/trunk/classbrowser/parser_ctags.py
+END
+parser_python.py
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/svn/!svn/ver/50/trunk/classbrowser/parser_python.py
+END
+parserinterface.py
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/svn/!svn/ver/22/trunk/classbrowser/parserinterface.py
+END
+tabwatch.py
+K 25
+svn:wc:ra_dav:version-url
+V 47
+/svn/!svn/ver/33/trunk/classbrowser/tabwatch.py
+END
+parser_ruby.py
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/svn/!svn/ver/52/trunk/classbrowser/parser_ruby.py
+END
+__init__.py
+K 25
+svn:wc:ra_dav:version-url
+V 47
+/svn/!svn/ver/43/trunk/classbrowser/__init__.py
+END
+parser_cstyle.py
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/svn/!svn/ver/22/trunk/classbrowser/parser_cstyle.py
+END
+parser_etags.py
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/svn/!svn/ver/43/trunk/classbrowser/parser_etags.py
+END
+parser_html.py
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/svn/!svn/ver/36/trunk/classbrowser/parser_html.py
+END
+parser_php.py
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/svn/!svn/ver/22/trunk/classbrowser/parser_php.py
+END
+parser_diff.py
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/svn/!svn/ver/30/trunk/classbrowser/parser_diff.py
+END
+browserwidget.py
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/svn/!svn/ver/52/trunk/classbrowser/browserwidget.py
+END
+imagelibrary.py
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/svn/!svn/ver/29/trunk/classbrowser/imagelibrary.py
+END
