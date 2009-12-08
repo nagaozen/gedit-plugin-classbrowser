@@ -34,5 +34,8 @@ Credits
 Changes
 -------
 
+> @2009-12-08
+> Changed parser_ctags.py to run with remote files.
+
 > @2009-05-25  
 > Implemented ETagsParserASP a specialized ASP parser based on ETagsParser.

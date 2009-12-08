@@ -56,15 +56,13 @@ class ETagsParser( CTagsParser ):
 
     def _parse_doc_to_model(self):
         
-        # refactoring noise    
+        # refactoring noise 
         doc = self.document
-        ls = self.model        
+        ls = self.model
         ls.clear()
-        
         #tmpfile = self._generate_tagfile("/var/planissimo.de/include/class.*","-n -e")
         tmpfile = self._generate_tagfile_from_document(doc,"-e")
         h = open(tmpfile)
-        
         
         #h = open("/var/planissimo.de/include/tags_e")
         

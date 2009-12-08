@@ -48,7 +48,7 @@ class TabWatch:
 
     def __tab_removed(self, window, tab):
         self.__unregister(tab.get_document())
-
+        
         doc = self.geditwindow.get_active_document()
         if doc != self.currentDoc: self.__update()
 
@@ -59,7 +59,7 @@ class TabWatch:
         self.openfiles.append(uri)
         tab.get_view().connect_after("notify",self.browser.on_cursor_changed)
         tab.get_view().connect_after("move-cursor",self.browser.update_cursor)
-
+        
         #doc.set_modified(True)
         doc.connect("modified-changed",self.__update)
         if options.singleton().verbose: print "added:",uri
@@ -74,18 +74,18 @@ class TabWatch:
     def __update(self, *args):
         doc = self.geditwindow.get_active_document()
         if doc:
-                
-            lang = doc.get_language()
             parser = self.defaultparser
+            lang = doc.get_language()
             if lang:
                 m = lang.get_name()
                 if m in self.languageParsers: parser = self.languageParsers[m]
-
+            
             if options.singleton().verbose:
                 print "parse %s (%s)"%(doc.get_uri(),parser.__class__.__name__)
+            
             model = parser.parse(doc)
             self.browser.set_model(model, parser)
             self.currentDoc = doc
-
+        
         else:
             self.browser.set_model(None)

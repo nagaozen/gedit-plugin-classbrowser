@@ -130,9 +130,9 @@ class CTagsParser( ClassParserInterface ):
         
         The parser uses the ctags command from the shell to create a ctags file,
         then parses the file, and finally populates a treemodel. """
-        # refactoring noise    
+        # refactoring noise
         doc = self.document
-        ls = self.model        
+        ls = self.model
         ls.clear()
         tmpfile = self._generate_tagfile_from_document(doc)
         if tmpfile is None: return ls
