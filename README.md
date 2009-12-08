@@ -1,4 +1,4 @@
-GEdit ClassBrowser
+gEdit ClassBrowser
 ==================
 
 This plugin provides a generic Class Browser for gedit, the default text editor 
@@ -35,7 +35,7 @@ Changes
 -------
 
 > @2009-12-08
-> Changed parser_ctags.py to run with remote files.
+> Modified parser_ctags.py, parser_etags.py and tabwatch.py to run with remote files.
 
 > @2009-05-25  
 > Implemented ETagsParserASP a specialized ASP parser based on ETagsParser.
