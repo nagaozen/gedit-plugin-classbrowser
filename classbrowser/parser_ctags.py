@@ -66,47 +66,63 @@ class CTagsParser( ClassParserInterface ):
         
         
     def _generate_tagfile_from_document(self, doc, options = "-n"):
+#    
+#        try:
+#            # make sure this is a local file (ie. not via ftp or something)
+#            if doc.get_uri()[:4] != "file": return None
+#        except: return None
+#        
+#        docpath = doc.get_uri_for_display()
+#        path, filename = os.path.split(docpath)
+#        
+#        if not self.parse_all_files:
+#            if filename.find(".") != -1:
+#                arg = path + os.sep + filename[:filename.rfind(".")] + ".*"
+#            else:
+#                arg = docpath
+#        else:
+#            arg = path + os.sep + "*.*"
+#        
+#        # simply replacing blanks is the best variant because both gnomevfs
+#        # and the fs understand it.
+#        arg = arg.replace(" ","\ ")
+#        
+#        if filename.find(".vala") >= 0:
+#             return self._generate_tagfile(docpath, "-n --language-force=C#")
+#        else:         
+#             return self._generate_tagfile(arg,options)
         
-        try:
-            # make sure this is a local file (ie. not via ftp or something)
-            if doc.get_uri()[:4] != "file": return None
-        except: return None
-    
-        docpath = doc.get_uri_for_display()
-        path, filename = os.path.split(docpath)
-        if not self.parse_all_files:
-            if filename.find(".") != -1:
-                arg = path + os.sep + filename[:filename.rfind(".")] + ".*"
-            else:
-                arg = docpath
-        else:
-            arg = path + os.sep + "*.*"       
-            
-        # simply replacing blanks is the best variant because both gnomevfs
-        # and the fs understand it.
-        arg = arg.replace(" ","\ ")
+        txt = doc.get_text(*doc.get_bounds())
         
-        print filename.find(".vala")
+        h_a, tmpfile_a = tempfile.mkstemp()
+        h_b, tmpfile_b = tempfile.mkstemp()
+        os.close(h_a)
+        os.close(h_b)
         
-        if filename.find(".vala") >= 0:
-             return self._generate_tagfile(docpath, "-n --language-force=C#")                
-        else:         
-             return self._generate_tagfile(arg,options)
+        src = open(tmpfile_a, "w")
+        src.write(txt)
+        src.close()
+        
+        cmd = "ctags %s --language-force=%s -f %s %s"%(options, doc.get_language().get_name(), tmpfile_b, tmpfile_a)
+        os.system(cmd)
+        os.remove(tmpfile_a)
+        
+        return tmpfile_b
     
     
-    def _generate_tagfile(self, filestr, options = "-n"):
-        """ filestr is a string, could be *.* or explicit paths """
+#    def _generate_tagfile(self, filestr, options = "-n"):
+#        """ filestr is a string, could be *.* or explicit paths """
 
-        # create tempfile
-        h, tmpfile = tempfile.mkstemp()
-        os.close(h)
-        
-        # launch ctags
-        command = "ctags %s -f %s %s"%(options,tmpfile,filestr)
-        print "command: %s"%command
-        os.system(command)
-        
-        return tmpfile
+#        # create tempfile
+#        h, tmpfile = tempfile.mkstemp()
+#        os.close(h)
+#        
+#        # launch ctags
+#        command = "ctags %s -f %s %s"%(options,tmpfile,filestr)
+#        print "command: %s"%command
+#        os.system(command)
+#        
+#        return tmpfile
 
         
     def _parse_doc_to_model(self):
@@ -178,7 +194,8 @@ class CTagsParser( ClassParserInterface ):
         
         
     def get_tag_position(self, model, path):
-        filepath = model.get_value( model.get_iter(path), 1 )
+        # filepath = model.get_value( model.get_iter(path), 1 )
+        filepath = self.document.get_uri()
         linenumber = model.get_value( model.get_iter(path), 2 )
         if filepath == "": return None
         return filepath, linenumber
