@@ -6,6 +6,11 @@ for the Gnome Desktop. It is located in the side pane and supports a wide range
 of languages through the use of exuberant ctags, as well as specialised parsers 
 for asp, php, python, ruby, xml/html and diff files.
 
+Deprecated
+----------
+
+**THIS PLUGIN HAS BEEN DEPRECATED IN FAVOR OF [GEDIT-PLUGIN-CODEBROWSER](https://github.com/nagaozen/gedit-plugin-codebrowser/)**.
+
 Installation
 ------------
 
